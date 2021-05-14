@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286a824b-7724-4402-a435-b848e861785b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,8 @@
       <workItem from="1620783022956" duration="3677000" />
       <workItem from="1620801554922" duration="1367000" />
       <workItem from="1620807691886" duration="2319000" />
-      <workItem from="1620969576519" duration="2879000" />
+      <workItem from="1620969576519" duration="3033000" />
+      <workItem from="1620974095863" duration="29000" />
     </task>
     <servers />
   </component>
@@ -66,6 +67,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
