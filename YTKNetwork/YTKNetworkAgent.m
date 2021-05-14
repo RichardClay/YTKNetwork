@@ -130,14 +130,13 @@
         }
     }
     // URL slash compatibility
-    NSURL *url = [NSURL URLWithString:baseUrl];
-
-    if (baseUrl.length > 0 && ![baseUrl hasSuffix:@"/"]) {
-        url = [url URLByAppendingPathComponent:@""];
-    }
     // URL Http DNS
     if ([YTKNetworkConfig sharedConfig].httpDNSEnable) {
-        url = [[NSURL alloc] initWithString:[[YTKDNSAnalysisManger analysisManger] replaceDomainNameOrangeUrl:url]];
+        baseUrl = [[YTKDNSAnalysisManger analysisManger] replaceDomainNameOrangeUrl:baseUrl];
+    }
+    NSURL *url = [NSURL URLWithString:baseUrl];
+    if (baseUrl.length > 0 && ![baseUrl hasSuffix:@"/"]) {
+        url = [url URLByAppendingPathComponent:@""];
     }
     return [NSURL URLWithString:detailUrl relativeToURL:url].absoluteString;
 }

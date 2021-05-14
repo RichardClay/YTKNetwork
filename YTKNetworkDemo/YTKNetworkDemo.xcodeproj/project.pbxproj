@@ -23,19 +23,7 @@
 		BF007FE219FF972C00816462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF007FE019FF972C00816462 /* Main.storyboard */; };
 		BF007FE419FF972C00816462 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF007FE319FF972C00816462 /* Images.xcassets */; };
 		BF007FE719FF972C00816462 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF007FE519FF972C00816462 /* LaunchScreen.xib */; };
-		BF007FF319FF972C00816462 /* YTKNetworkDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF007FF219FF972C00816462 /* YTKNetworkDemoTests.m */; };
-		EDD64A8FB57EEC11DE6CEB4E /* libPods-YTKNetworkDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573535265CF5ECF05E1BBD90 /* libPods-YTKNetworkDemoTests.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BF007FED19FF972C00816462 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF007FCB19FF972C00816462 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF007FD219FF972C00816462;
-			remoteInfo = YTKNetworkDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20D2D96A1D268808009E13A2 /* YTKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
@@ -68,7 +56,6 @@
 		BF007FE119FF972C00816462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF007FE319FF972C00816462 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF007FE619FF972C00816462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BF007FEC19FF972C00816462 /* YTKNetworkDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YTKNetworkDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF007FF119FF972C00816462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF007FF219FF972C00816462 /* YTKNetworkDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkDemoTests.m; sourceTree = "<group>"; };
 		D30149728A908A3BBCCE924A /* Pods-YTKNetworkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTKNetworkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTKNetworkDemo/Pods-YTKNetworkDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,14 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25F1A00B1066754A19C74116 /* libPods-YTKNetworkDemo.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF007FE919FF972C00816462 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDD64A8FB57EEC11DE6CEB4E /* libPods-YTKNetworkDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				BF007FD319FF972C00816462 /* YTKNetworkDemo.app */,
-				BF007FEC19FF972C00816462 /* YTKNetworkDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,25 +203,6 @@
 			productReference = BF007FD319FF972C00816462 /* YTKNetworkDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF007FEB19FF972C00816462 /* YTKNetworkDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BF007FF919FF972C00816462 /* Build configuration list for PBXNativeTarget "YTKNetworkDemoTests" */;
-			buildPhases = (
-				530C2FC27E9D057DF8080989 /* [CP] Check Pods Manifest.lock */,
-				BF007FE819FF972C00816462 /* Sources */,
-				BF007FE919FF972C00816462 /* Frameworks */,
-				BF007FEA19FF972C00816462 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF007FEE19FF972C00816462 /* PBXTargetDependency */,
-			);
-			name = YTKNetworkDemoTests;
-			productName = YTKNetworkDemoTests;
-			productReference = BF007FEC19FF972C00816462 /* YTKNetworkDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -257,12 +216,6 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 4C4464ZL88;
 						ProvisioningStyle = Manual;
-					};
-					BF007FEB19FF972C00816462 = {
-						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 4C4464ZL88;
-						ProvisioningStyle = Manual;
-						TestTargetID = BF007FD219FF972C00816462;
 					};
 				};
 			};
@@ -281,7 +234,6 @@
 			projectRoot = "";
 			targets = (
 				BF007FD219FF972C00816462 /* YTKNetworkDemo */,
-				BF007FEB19FF972C00816462 /* YTKNetworkDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,34 +249,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF007FEA19FF972C00816462 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		530C2FC27E9D057DF8080989 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTKNetworkDemoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		609DD632ED1E07363BD48FB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,23 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF007FE819FF972C00816462 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF007FF319FF972C00816462 /* YTKNetworkDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BF007FEE19FF972C00816462 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BF007FD219FF972C00816462 /* YTKNetworkDemo */;
-			targetProxy = BF007FED19FF972C00816462 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BF007FE019FF972C00816462 /* Main.storyboard */ = {
@@ -522,50 +433,6 @@
 			};
 			name = Release;
 		};
-		BF007FFA19FF972C00816462 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3A8BAC1ADCD712EF8786C33 /* Pods-YTKNetworkDemoTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 4C4464ZL88;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = YTKNetworkDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yuantiku.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTKNetworkDemo.app/YTKNetworkDemo";
-			};
-			name = Debug;
-		};
-		BF007FFB19FF972C00816462 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65526970D9E7FB74931FF110 /* Pods-YTKNetworkDemoTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 4C4464ZL88;
-				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = YTKNetworkDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yuantiku.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTKNetworkDemo.app/YTKNetworkDemo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -583,15 +450,6 @@
 			buildConfigurations = (
 				BF007FF719FF972C00816462 /* Debug */,
 				BF007FF819FF972C00816462 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF007FF919FF972C00816462 /* Build configuration list for PBXNativeTarget "YTKNetworkDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF007FFA19FF972C00816462 /* Debug */,
-				BF007FFB19FF972C00816462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
