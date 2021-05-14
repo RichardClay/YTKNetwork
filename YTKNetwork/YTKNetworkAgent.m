@@ -25,6 +25,7 @@
 #import "YTKNetworkConfig.h"
 #import "YTKNetworkPrivate.h"
 #import "YTKRequestionManager.h"
+#import "YTKDNSAnalysisManger.h"
 #import <pthread/pthread.h>
 
 #if __has_include(<AFNetworking/AFHTTPSessionManager.h>)
@@ -134,7 +135,10 @@
     if (baseUrl.length > 0 && ![baseUrl hasSuffix:@"/"]) {
         url = [url URLByAppendingPathComponent:@""];
     }
-
+    // URL Http DNS
+    if ([YTKNetworkConfig sharedConfig].httpDNSEnable) {
+        url = [[NSURL alloc] initWithString:[[YTKDNSAnalysisManger analysisManger] replaceDomainNameOrangeUrl:url]];
+    }
     return [NSURL URLWithString:detailUrl relativeToURL:url].absoluteString;
 }
 
@@ -230,9 +234,7 @@
 
 - (void)addRequest:(YTKBaseRequest *)request {
     NSParameterAssert(request != nil);
-
     NSError * __autoreleasing requestSerializationError = nil;
-
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
         __block NSURLSessionDataTask *dataTask = nil;
@@ -270,6 +272,10 @@
                 break;
         }
     }
+    if (![YTKNetworkConfig sharedConfig].UseProxyEnable && [self isUseProxy]) {
+        YTKLog(@"The network request cannot be sent because the proxy is turned on");
+        return;
+    }
     ///处理重复请求的问题
     [[YTKRequestionManager manager]lock];
     NSTimeInterval lastRequestionTime = [[YTKRequestionManager manager] timeWithRequestionKeyUrl:request.requestUrl];
@@ -284,6 +290,17 @@
         [[YTKRequestionManager manager]addRequestionWithKeyUrl:request.requestUrl];
         [[YTKRequestionManager manager]unlock];
     }
+}
+
+
+- (BOOL)isUseProxy {
+    CFDictionaryRef dictionary = CFNetworkCopySystemProxySettings();
+    const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dictionary, (const void*)kCFNetworkProxiesHTTPProxy);
+    NSString* proxy = (__bridge NSString *)proxyCFstr;
+    if (proxy.length > 0) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)cancelRequest:(YTKBaseRequest *)request {

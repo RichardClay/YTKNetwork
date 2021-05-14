@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "YTKNetwork"
-  s.version      = "4.0.6"
+  s.version      = "4.0.7"
   s.summary      = "YTKNetwork is a high level request util based on AFNetworking."
   s.homepage     = "http://uugit.uupt.com/CommonLib/YTKNetwork.git"
   s.license      = "MIT"
@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
   s.framework = "CFNetwork"
 
   s.dependency "AFNetworking/NSURLSession", "~> 4.0"
+  s.dependency 'AlicloudHTTPDNS'
 end

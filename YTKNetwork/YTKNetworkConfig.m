@@ -23,16 +23,19 @@
 
 #import "YTKNetworkConfig.h"
 #import "YTKBaseRequest.h"
+#import "YTKDNSAnalysisManger.h"
 
 #if __has_include(<AFNetworking/AFSecurityPolicy.h>)
+
 #import <AFNetworking/AFSecurityPolicy.h>
+
 #else
 #import <AFNetworking/AFSecurityPolicy.h>
 #endif
 
 @implementation YTKNetworkConfig {
-    NSMutableArray<id<YTKUrlFilterProtocol>> *_urlFilters;
-    NSMutableArray<id<YTKCacheDirPathFilterProtocol>> *_cacheDirPathFilters;
+    NSMutableArray<id <YTKUrlFilterProtocol>> *_urlFilters;
+    NSMutableArray<id <YTKCacheDirPathFilterProtocol>> *_cacheDirPathFilters;
 }
 
 + (YTKNetworkConfig *)sharedConfig {
@@ -53,11 +56,25 @@
         _cacheDirPathFilters = [NSMutableArray array];
         _securityPolicy = [AFSecurityPolicy defaultPolicy];
         _debugLogEnabled = NO;
+        _UseProxyEnable = YES;
+        [self configHttpDNSService];
     }
     return self;
 }
 
-- (void)addUrlFilter:(id<YTKUrlFilterProtocol>)filter {
+- (BOOL)httpDNSEnable {
+    return self.accountID != 0 && self.secretKey.length > 0 && self.preResolveHosts.count > 0;
+}
+
+- (void)configHttpDNSService {
+    if (self.accountID != 0 && self.secretKey.length > 0 && self.preResolveHosts.count > 0) {
+        YTKDNSAnalysisManger *manager = [YTKDNSAnalysisManger analysisManger];
+        manager.preResolveHosts = self.preResolveHosts;
+        [manager configWithAccountID:self.accountID andSecretKey:self.secretKey];
+    }
+}
+
+- (void)addUrlFilter:(id <YTKUrlFilterProtocol>)filter {
     [_urlFilters addObject:filter];
 }
 
@@ -65,7 +82,7 @@
     [_urlFilters removeAllObjects];
 }
 
-- (void)addCacheDirPathFilter:(id<YTKCacheDirPathFilterProtocol>)filter {
+- (void)addCacheDirPathFilter:(id <YTKCacheDirPathFilterProtocol>)filter {
     [_cacheDirPathFilters addObject:filter];
 }
 
@@ -73,11 +90,11 @@
     [_cacheDirPathFilters removeAllObjects];
 }
 
-- (NSArray<id<YTKUrlFilterProtocol>> *)urlFilters {
+- (NSArray<id <YTKUrlFilterProtocol>> *)urlFilters {
     return [_urlFilters copy];
 }
 
-- (NSArray<id<YTKCacheDirPathFilterProtocol>> *)cacheDirPathFilters {
+- (NSArray<id <YTKCacheDirPathFilterProtocol>> *)cacheDirPathFilters {
     return [_cacheDirPathFilters copy];
 }
 

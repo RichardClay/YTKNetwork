@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="286a824b-7724-4402-a435-b848e861785b" name="Default Changelist" comment="" />
+    <list default="true" id="286a824b-7724-4402-a435-b848e861785b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../YTKDNSAnalysisManger.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../YTKDNSAnalysisManger.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkConfig.m" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkConfig.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_c1e67ad75e2c37eaa2f09b118016a826ae0da4dc" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1sN9Ne17zFC8XNedKM8mRu790Ef" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,11 +54,35 @@
       <workItem from="1620702155959" duration="9000" />
       <workItem from="1620702196389" duration="6868000" />
       <workItem from="1620783022956" duration="3677000" />
-      <workItem from="1620801554922" duration="662000" />
+      <workItem from="1620801554922" duration="1367000" />
+      <workItem from="1620807691886" duration="2319000" />
+      <workItem from="1620969576519" duration="1785000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m</url>
+          <line>137</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

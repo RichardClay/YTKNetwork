@@ -1,9 +1,9 @@
+source 'https://github.com/aliyun/aliyun-specs'
 target 'YTKNetworkDemo' do
-    pod 'YTKNetwork', :path => '../'
-    pod 'AFNetworking', '~> 4.0'
+  pod 'YTKNetwork', :path => '../'
+  pod 'AFNetworking', '~> 4.0'
 end
 
 target 'YTKNetworkDemoTests' do
-    pod 'YTKNetwork', :path => '../'
+  pod 'YTKNetwork', :path => '../'
 end
-

@@ -66,6 +66,12 @@ typedef void (^AFURLSessionTaskDidFinishCollectingMetricsBlock)(NSURLSession *se
 @property (nonatomic, strong) NSString *baseUrl;
 ///  Request CDN URL. Default is empty string.
 @property (nonatomic, strong) NSString *cdnUrl;
+/// HTTPDNS  secretKey
+@property (nonatomic, strong) NSString *secretKey;
+/// PreResolveHosts
+@property(nonatomic, strong) NSArray <NSString *> *preResolveHosts;
+/// HTTPDNS  accountID
+@property (nonatomic, assign) int accountID;
 ///  URL filters. See also `YTKUrlFilterProtocol`.
 @property (nonatomic, strong, readonly) NSArray<id<YTKUrlFilterProtocol>> *urlFilters;
 ///  Cache path filters. See also `YTKCacheDirPathFilterProtocol`.
@@ -74,6 +80,10 @@ typedef void (^AFURLSessionTaskDidFinishCollectingMetricsBlock)(NSURLSession *se
 @property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 ///  Whether to log debug info. Default is NO;
 @property (nonatomic) BOOL debugLogEnabled;
+///  Whether UseProxy. Default is YES;
+@property (nonatomic) BOOL UseProxyEnable;
+///  Http DNS Open Default is NO;
+@property (nonatomic, assign, readonly) BOOL httpDNSEnable;
 ///  SessionConfiguration will be used to initialize AFHTTPSessionManager. Default is nil.
 @property (nonatomic, strong, nullable) NSURLSessionConfiguration* sessionConfiguration;
 ///  NSURLSessionTaskMetrics
