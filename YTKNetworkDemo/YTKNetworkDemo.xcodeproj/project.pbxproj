@@ -260,6 +260,8 @@
 					};
 					BF007FEB19FF972C00816462 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4C4464ZL88;
+						ProvisioningStyle = Manual;
 						TestTargetID = BF007FD219FF972C00816462;
 					};
 				};
@@ -525,6 +527,8 @@
 			baseConfigurationReference = F3A8BAC1ADCD712EF8786C33 /* Pods-YTKNetworkDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4C4464ZL88;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -534,7 +538,10 @@
 				INFOPLIST_FILE = YTKNetworkDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yuantiku.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTKNetworkDemo.app/YTKNetworkDemo";
 			};
 			name = Debug;
@@ -544,12 +551,17 @@
 			baseConfigurationReference = 65526970D9E7FB74931FF110 /* Pods-YTKNetworkDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4C4464ZL88;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = YTKNetworkDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yuantiku.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTKNetworkDemo.app/YTKNetworkDemo";
 			};
 			name = Release;

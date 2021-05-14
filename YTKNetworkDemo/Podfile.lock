@@ -27,7 +27,7 @@ PODS:
   - AlicloudUtils (1.3.9):
     - AlicloudUTDID
   - EMASRest (11.1.1.2)
-  - YTKNetwork (4.0.6):
+  - YTKNetwork (4.0.7):
     - AFNetworking/NSURLSession (~> 4.0)
     - AlicloudHTTPDNS
 
@@ -58,7 +58,7 @@ SPEC CHECKSUMS:
   AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
   AlicloudUtils: 66e0ba6ece62d7dd05e9dd95674b2c7811624c2f
   EMASRest: 5ccda23f59b05cdd3a6e321c17e37e8125d7eea4
-  YTKNetwork: fea4ff9a8069537003cebc3a8ff4fd82c930d68d
+  YTKNetwork: 694ab3716a72804dd1b1937d7c9157105694fd19
 
 PODFILE CHECKSUM: 24b65577b1716d69b15299d3f6a03f2ab2edd939
 
