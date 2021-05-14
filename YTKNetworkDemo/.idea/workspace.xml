@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286a824b-7724-4402-a435-b848e861785b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../YTKNetwork.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m" beforeDir="false" afterPath="$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +51,8 @@
       <workItem from="1620807691886" duration="2319000" />
       <workItem from="1620969576519" duration="3033000" />
       <workItem from="1620974095863" duration="29000" />
+      <workItem from="1620975324117" duration="65000" />
+      <workItem from="1620975419489" duration="40000" />
     </task>
     <servers />
   </component>
@@ -68,16 +70,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/../YTKNetwork/YTKNetworkAgent.m</url>
-          <line>137</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

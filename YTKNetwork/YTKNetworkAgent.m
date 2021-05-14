@@ -233,6 +233,31 @@
 
 - (void)addRequest:(YTKBaseRequest *)request {
     NSParameterAssert(request != nil);
+    AFSecurityPolicy *secx = _manager.securityPolicy;
+    NSString *orangeHost = [_manager.requestSerializer.HTTPRequestHeaders valueForKey:@"host"];
+    [_manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition(NSURLSession*session, NSURLAuthenticationChallenge *challenge, NSURLCredential *__autoreleasing*_credential) {
+        NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+        __autoreleasing NSURLCredential *credential =nil;
+        if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+            if ([secx evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:orangeHost]) {
+                credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+                if (credential) {
+                    disposition = NSURLSessionAuthChallengeUseCredential;
+                } else {
+                    disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+                }
+            } else {
+                disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+            }
+        } else {
+            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+        }
+        if (credential) {
+            *_credential = credential;
+        }
+        return disposition;
+    }];
+        
     NSError * __autoreleasing requestSerializationError = nil;
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
