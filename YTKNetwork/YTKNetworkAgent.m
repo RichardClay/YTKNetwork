@@ -77,6 +77,7 @@
         _manager.responseSerializer.acceptableStatusCodes = _allStatusCodes;
         _manager.completionQueue = _processingQueue;
         [_manager setTaskDidFinishCollectingMetricsBlock:_config.collectingMetricsBlock];
+        [self abserverNetWorkState];
     }
     return self;
 }
@@ -233,8 +234,38 @@
     }
 }
 
+- (void)abserverNetWorkState {
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN: {
+                YTKLog(@"Current network environment WWAN");
+            } break;
+            case AFNetworkReachabilityStatusReachableViaWiFi: {
+                YTKLog(@"Current network environment Wifi");
+            } break;
+            case AFNetworkReachabilityStatusNotReachable: {
+                YTKLog(@"The network is unavailable, please check the network environment");
+            } break;
+            case AFNetworkReachabilityStatusUnknown: {
+                YTKLog(@"The network is unavailable, please check the network environment");
+            } break;
+        }
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+
+- (BOOL)checkNetWorkState {
+    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusUnknown)  {
+        YTKLog(@"The network is unavailable, please check the network environment");
+        return false;
+    }
+    return true;
+}
+
 - (void)addRequest:(YTKBaseRequest *)request {
     NSParameterAssert(request != nil);
+    if (![self checkNetWorkState]) return;
     AFSecurityPolicy *secx = _manager.securityPolicy;
     NSString *orangeHost = [_manager.requestSerializer.HTTPRequestHeaders valueForKey:@"host"];
     [_manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition(NSURLSession*session, NSURLAuthenticationChallenge *challenge, NSURLCredential *__autoreleasing*_credential) {
