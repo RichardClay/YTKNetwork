@@ -87,6 +87,7 @@
     dispatch_once(&onceToken, ^{
         _jsonResponseSerializer = [AFJSONResponseSerializer serializer];
         _jsonResponseSerializer.acceptableStatusCodes = _allStatusCodes;
+        _jsonResponseSerializer.removesKeysWithNullValues = true;
         _jsonResponseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     });
     return _jsonResponseSerializer;
@@ -265,7 +266,10 @@
 
 - (void)addRequest:(YTKBaseRequest *)request {
     NSParameterAssert(request != nil);
-    if (![self checkNetWorkState]) return;
+    if (![self checkNetWorkState]) {
+        [self requestDidFailWithRequest:request error:[NSError errorWithDomain:@"com.uupt.error.domain" code:-10001 userInfo:@{NSLocalizedDescriptionKey: @"The network is unavailable, please check the network environment"}]];
+        return;
+    }
     AFSecurityPolicy *secx = _manager.securityPolicy;
     NSString *orangeHost = [_manager.requestSerializer.HTTPRequestHeaders valueForKey:@"host"];
     [_manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition(NSURLSession*session, NSURLAuthenticationChallenge *challenge, NSURLCredential *__autoreleasing*_credential) {
