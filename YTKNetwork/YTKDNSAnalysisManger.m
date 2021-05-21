@@ -4,6 +4,7 @@
 
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import "YTKDNSAnalysisManger.h"
+#import "YTKNetworkConfig.h"
 
 @interface YTKDNSAnalysisManger () <HttpDNSDegradationDelegate>
 
@@ -33,7 +34,7 @@
     HttpDnsService *httpDns = [[HttpDnsService alloc] initWithAccountID:accountID secretKey:secretKey];
     [httpDns setLogEnabled:YES];
     [httpDns setAuthCurrentTime:[[NSDate date] timeIntervalSince1970]];
-    [self.dansManger setHTTPSRequestEnabled:YES];
+    [self.dansManger setHTTPSRequestEnabled:[YTKNetworkConfig sharedConfig].debugLogEnabled];
     [self.dansManger setPreResolveHosts:self.preResolveHosts];
     [self.dansManger setLogEnabled:YES];
     [self.dansManger setPreResolveAfterNetworkChanged:YES];
