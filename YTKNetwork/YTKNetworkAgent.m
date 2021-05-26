@@ -337,19 +337,27 @@
         YTKLog(@"The network request cannot be sent because the proxy is turned on");
         return;
     }
-    ///处理重复请求的问题
-    [[YTKRequestionManager manager]lock];
-    NSTimeInterval lastRequestionTime = [[YTKRequestionManager manager] timeWithRequestionKeyUrl:request.requestUrl];
-    NSTimeInterval nowTime = [[YTKRequestionManager manager] nowTime];
-    if ((nowTime - lastRequestionTime) <= 1) {
-        YTKLog(@"Filter Request URL :%@%@",request.baseUrl,request.requestUrl);
+    if (request.requestIdentification) {
+            ///处理重复请求的问题
+        [[YTKRequestionManager manager]lock];
+        NSTimeInterval lastRequestionTime = [[YTKRequestionManager manager] timeWithRequestionKeyUrl:[NSString stringWithFormat:@"%@",request.requestIdentification]];
+        NSTimeInterval nowTime = [[YTKRequestionManager manager] nowTime];
+        if ((nowTime - lastRequestionTime) <= 1) {
+            YTKLog(@"Filter Request URL :%@%@",request.baseUrl,request.requestUrl);
+            [[YTKRequestionManager manager]unlock];
+        } else {
+            // Retain request
+            YTKLog(@"Add request: %@", NSStringFromClass([request class]));
+            [self addRequestToRecord:request];
+            [request.requestTask resume];
+            [[YTKRequestionManager manager]addRequestionWithKeyUrl:request.requestIdentification];
+            [[YTKRequestionManager manager]unlock];
+        }
     } else {
         // Retain request
         YTKLog(@"Add request: %@", NSStringFromClass([request class]));
         [self addRequestToRecord:request];
         [request.requestTask resume];
-        [[YTKRequestionManager manager]addRequestionWithKeyUrl:request.requestUrl];
-        [[YTKRequestionManager manager]unlock];
     }
 }
 
@@ -434,9 +442,11 @@
     if (!request) {
         return;
     }
-    [[YTKRequestionManager manager] lock];
-    [[YTKRequestionManager manager] removeRequestionWithKeyUrl:request.requestUrl];
-    [[YTKRequestionManager manager] unlock];
+    if (request.requestIdentification) {
+        [[YTKRequestionManager manager] lock];
+        [[YTKRequestionManager manager] removeRequestionWithKeyUrl:request.requestIdentification];
+        [[YTKRequestionManager manager] unlock];
+    }
     YTKLog(@"Finished Request: %@", NSStringFromClass([request class]));
 
     NSError * __autoreleasing serializationError = nil;
@@ -509,9 +519,11 @@
     request.error = error;
     YTKLog(@"Request %@ failed, status code = %ld, error = %@",
            NSStringFromClass([request class]), (long)request.responseStatusCode, error.localizedDescription);
-    [[YTKRequestionManager manager] lock];
-    [[YTKRequestionManager manager] removeRequestionWithKeyUrl:request.requestUrl];
-    [[YTKRequestionManager manager] unlock];
+    if (request.requestIdentification) {
+        [[YTKRequestionManager manager] lock];
+        [[YTKRequestionManager manager] removeRequestionWithKeyUrl:request.requestIdentification];
+        [[YTKRequestionManager manager] unlock];
+    }
     // Save incomplete download data.
     NSData *incompleteDownloadData = error.userInfo[NSURLSessionDownloadTaskResumeData];
     NSURL *localUrl = nil;
