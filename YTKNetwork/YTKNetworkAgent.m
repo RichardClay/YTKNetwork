@@ -257,7 +257,7 @@
 
 
 - (BOOL)checkNetWorkState {
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusUnknown)  {
+    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusNotReachable)  {
         YTKLog(@"The network is unavailable, please check the network environment");
         return false;
     }
